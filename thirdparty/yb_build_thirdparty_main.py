@@ -128,7 +128,7 @@ class Builder:
             build_definitions.libcds.LibCDSDependency(),
 
             build_definitions.libuv.LibUvDependency(),
-            build_definitions.cassandra_cpp_driver.CassandraCppDriverDependency(),
+            #build_definitions.cassandra_cpp_driver.CassandraCppDriverDependency(),
         ]
 
         self.selected_dependencies = []

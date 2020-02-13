@@ -1642,9 +1642,9 @@ ADD_THIRDPARTY_LIB(libuv
   SHARED_LIB "${LIBUV_SHARED_LIB}")
 
 ## C++ Cassandra driver
-find_package(Cassandra REQUIRED)
-include_directories(SYSTEM ${LIBCASSANDRA_INCLUDE_DIR})
-ADD_THIRDPARTY_LIB(cassandra SHARED_LIB "${LIBCASSANDRA_SHARED_LIB}")
+#find_package(Cassandra REQUIRED)
+#include_directories(SYSTEM ${LIBCASSANDRA_INCLUDE_DIR})
+#ADD_THIRDPARTY_LIB(cassandra SHARED_LIB "${LIBCASSANDRA_SHARED_LIB}")
 
 ############################################################
 # Linker setup
