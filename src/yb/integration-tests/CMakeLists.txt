@@ -119,18 +119,18 @@ ADD_YB_TEST(redis_table-test)
 ADD_YB_TEST(update_scan_delta_compact-test)
 ADD_YB_TEST(log_version-test)
 
-set(YB_TEST_LINK_LIBS_SAVED ${YB_TEST_LINK_LIBS})
-set(YB_TEST_LINK_LIBS ${YB_TEST_LINK_LIBS} cassandra)
-set(CASS_DRIVER_VERSION "2.9.0-yb-4")
-set(CASS_DRIVER_INTERNAL_INCLUDE "${YB_THIRDPARTY_DIR}/src/cassandra-cpp-driver-${CASS_DRIVER_VERSION}/src")
-ADD_YB_TEST(cassandra_cpp_driver-test)
-target_include_directories(cassandra_cpp_driver-test PUBLIC
-  ${CASS_DRIVER_INTERNAL_INCLUDE}
-  "${CASS_DRIVER_INTERNAL_INCLUDE}/third_party/sparsehash/src")
+#set(YB_TEST_LINK_LIBS_SAVED ${YB_TEST_LINK_LIBS})
+#set(YB_TEST_LINK_LIBS ${YB_TEST_LINK_LIBS} cassandra)
+#set(CASS_DRIVER_VERSION "2.9.0-yb-4")
+#set(CASS_DRIVER_INTERNAL_INCLUDE "${YB_THIRDPARTY_DIR}/src/cassandra-cpp-driver-${CASS_DRIVER_VERSION}/src")
+#ADD_YB_TEST(cassandra_cpp_driver-test)
+#target_include_directories(cassandra_cpp_driver-test PUBLIC
+#  ${CASS_DRIVER_INTERNAL_INCLUDE}
+#  "${CASS_DRIVER_INTERNAL_INCLUDE}/third_party/sparsehash/src")
 
-if("${COMPILER_FAMILY}" STREQUAL "gcc8")
-  target_compile_options(cassandra_cpp_driver-test PUBLIC "-Wno-class-memaccess")
-endif()
+#if("${COMPILER_FAMILY}" STREQUAL "gcc8")
+#  target_compile_options(cassandra_cpp_driver-test PUBLIC "-Wno-class-memaccess")
+#endif()
 
 set(YB_TEST_LINK_LIBS ${YB_TEST_LINK_LIBS_SAVED})
 

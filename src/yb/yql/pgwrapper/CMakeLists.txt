@@ -44,24 +44,24 @@ ADD_YB_TEST(pg_on_conflict-test)
 ADD_YB_TEST(pg_mini-test)
 
 # This is really a tool, not a test, but uses a lot of existing test infrastructure.
-ADD_YB_TEST(create_initial_sys_catalog_snapshot)
-set(CREATE_INITIAL_SYS_CATALOG_SNAPSHOT_TOOL_PATH ${LAST_ADDED_TEST_BINARY_PATH})
-set(CREATE_INITIAL_SYS_CATALOG_SNAPSHOT_TARGET_NAME ${LAST_ADDED_TEST_BINARY_NAME})
+# ADD_YB_TEST(create_initial_sys_catalog_snapshot)
+#set(CREATE_INITIAL_SYS_CATALOG_SNAPSHOT_TOOL_PATH ${LAST_ADDED_TEST_BINARY_PATH})
+#set(CREATE_INITIAL_SYS_CATALOG_SNAPSHOT_TARGET_NAME ${LAST_ADDED_TEST_BINARY_NAME})
 
-set(gen_initial_sys_catalog_snapshot_cmd
-    "${BUILD_SUPPORT_DIR}/gen_initial_sys_catalog_snapshot_wrapper")
+#set(gen_initial_sys_catalog_snapshot_cmd
+#    "${BUILD_SUPPORT_DIR}/gen_initial_sys_catalog_snapshot_wrapper")
 
-if (YB_USE_TSAN)
-  # Don't build the initial sys catalog snapshot target automatically in TSAN.
-  add_custom_target(
-    initial_sys_catalog_snapshot
-    COMMAND ${gen_initial_sys_catalog_snapshot_cmd})
-else()
-  add_custom_target(
-    initial_sys_catalog_snapshot ALL
-    COMMAND ${gen_initial_sys_catalog_snapshot_cmd})
-endif()
+#if (YB_USE_TSAN)
+# Don't build the initial sys catalog snapshot target automatically in TSAN.
+#  add_custom_target(
+#    initial_sys_catalog_snapshot
+#    COMMAND ${gen_initial_sys_catalog_snapshot_cmd})
+#else()
+#  add_custom_target(
+#    initial_sys_catalog_snapshot ALL
+#    COMMAND ${gen_initial_sys_catalog_snapshot_cmd})
+#endif()
 
 add_dependencies(
-  initial_sys_catalog_snapshot
+  #initial_sys_catalog_snapshot
   ${CREATE_INITIAL_SYS_CATALOG_SNAPSHOT_TARGET_NAME} yb-master yb-tserver postgres)
